@@ -2,6 +2,7 @@ import React from "react";
 import "./PopupDesign.css";
 
 const PopupDescription = (data) => {
+  // prop data from parent div
   return (
     <>
       <div className="popup1 design">
@@ -12,15 +13,19 @@ const PopupDescription = (data) => {
             </div>
 
             <div className="col-sm-12">
-              <h1>HotelName</h1>
-              <h3>{data.data.HotelName}</h3>
-              <h1>Price</h1>
-              <h3>{data.data.Price}</h3>
-              <h1>Description</h1>
+              <div className="inlinement">
+                <h5>Hotel Name:- </h5>
+                <p>{data.data.HotelName}</p>
+              </div>
+              <div className="inlinement">
+                <h5>Price:- </h5>
+                <p>{data.data.Price}</p>
+              </div>
+              <h4>Description</h4>
               {data.data.data.map((data1, index) => {
                 return (
                   <p key={index}>
-                    (     {index + 1}   )  {data1.description}
+                    ( {index + 1} ) {data1.description}
                   </p>
                 );
               })}

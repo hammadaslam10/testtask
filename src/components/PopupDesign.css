@@ -20,7 +20,7 @@ button.ctm-booknow {
   background: #000;
   color: #fff;
   border: none;
-  width: 10%;
+  width: 20%;
   margin: auto;
 }
 .modal-header {
@@ -38,4 +38,10 @@ h3 {
 }
 a {
   text-align: center;
+}
+.inlinement {
+  display: flex;
+}
+.inlinement p {
+  padding-left: 10px;
 }
