@@ -111,120 +111,122 @@ export default function Inquiry() {
   };
   return (
     <Fragment>
-      <form
-        id="form"
-        className="flex flex-col"
-        onSubmit={handleSubmit(onSubmit)}
-      >
-        <input
-          type="text"
-          {...register("Hotelname")}
-          placeholder="Hotel Name"
-        />
-        <input type="text" {...register("Address")} placeholder="Address" />
-        <input
-          type="text"
-          {...register("guest_qty")}
-          placeholder="GuestQunatity"
-        />
-        <input
-          type="text"
-          {...register("room_qty")}
-          placeholder="RoomQunatity"
-        />
-        <input
-          type="text"
-          {...register("children_qty")}
-          placeholder="ChildernQuantity"
-        />
-        <input
-          type="text"
-          {...register("children_age")}
-          placeholder="ChildrenAge"
-        />
-        <input
-          type="text"
-          {...register("travel_purpose")}
-          placeholder="travelpurpose"
-        />
-        <input
-          type="date"
-          {...register("arrival_date")}
-          onChange={arrivalchange}
-          min={toJSONLocal(date)}
-        />
-        <input
-          type="date"
-          {...register("departure_date")}
-          min={ArrivalDate}
-          disabled={Disable}
-        />
-        <Autocomplete
-          id="country-select-demo"
-          onChange={(event, value) => SetCurrencyCode(value)}
-          sx={{ width: 300 }}
-          options={currency}
-          autoHighlight
-          getOptionLabel={(option) => option.name}
-          renderOption={(props, option) => (
-            <Box component="li" {...props}>
-              {option.code} {option.name} ({option.symbol})
-            </Box>
-          )}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              label="Choose Currency Code"
-              inputProps={{
-                ...params.inputProps,
-              }}
-            />
-          )}
-        />
-        <button disabled={SubmitDisable}>click</button>
-      </form>
-
-      <div className="Table">
-        <h3>{DataonTable.length}entry </h3>
-        <TableContainer
-          component={Paper}
-          style={{ boxShadow: "0px 13px 20px 0px blue" }}
+      <div className="query">
+        <form
+          id="form"
+          className="flex flex-col"
+          onSubmit={handleSubmit(onSubmit)}
         >
-          <Table
-            stickyHeader
-            aria-label="simple table"
-            sx={{ minWidth: 650, overflow: "hidden" }}
+          <input
+            type="text"
+            {...register("Hotelname")}
+            placeholder="Hotel Name"
+          />
+          <input type="text" {...register("Address")} placeholder="Address" />
+          <input
+            type="text"
+            {...register("guest_qty")}
+            placeholder="GuestQunatity"
+          />
+          <input
+            type="text"
+            {...register("room_qty")}
+            placeholder="RoomQunatity"
+          />
+          <input
+            type="text"
+            {...register("children_qty")}
+            placeholder="ChildernQuantity"
+          />
+          <input
+            type="text"
+            {...register("children_age")}
+            placeholder="ChildrenAge"
+          />
+          <input
+            type="text"
+            {...register("travel_purpose")}
+            placeholder="travelpurpose"
+          />
+          <input
+            type="date"
+            {...register("arrival_date")}
+            onChange={arrivalchange}
+            min={toJSONLocal(date)}
+          />
+          <input
+            type="date"
+            {...register("departure_date")}
+            min={ArrivalDate}
+            disabled={Disable}
+          />
+          <Autocomplete
+            id="country-select-demo"
+            onChange={(event, value) => SetCurrencyCode(value)}
+            sx={{ width: 300 }}
+            options={currency}
+            autoHighlight
+            getOptionLabel={(option) => option.name}
+            renderOption={(props, option) => (
+              <Box component="li" {...props}>
+                {option.code} {option.name} ({option.symbol})
+              </Box>
+            )}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label="Choose Currency Code"
+                inputProps={{
+                  ...params.inputProps,
+                }}
+              />
+            )}
+          />
+          <button disabled={SubmitDisable}>click</button>
+        </form>
+
+        <div className="Table">
+          <h3>{DataonTable.length}entry </h3>
+          <TableContainer
+            component={Paper}
+            style={{ boxShadow: "0px 13px 20px 0px blue" }}
           >
-            <TableHead>
-              <StyledTableRow>
-                <StyledTableCell>Image</StyledTableCell>
-                <StyledTableCell align="left">
-                  Accomadation Type
-                </StyledTableCell>
-                <StyledTableCell align="left">city</StyledTableCell>
-                <StyledTableCell align="left">room message</StyledTableCell>
-                <StyledTableCell align="left" />
-              </StyledTableRow>
-            </TableHead>
-            <TableBody style={{ color: "black" }}>
-              {DataonTable.map((row) => (
-                <StyledTableRow
-                  key={row.name}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                >
-                  <TableCell component="th" scope="row">
-                    <img src={row.main_photo_url} />
-                  </TableCell>
-                  <TableCell align="left">
-                    {row.accommodation_type_name}
-                  </TableCell>
-                  <TableCell align="left">{row.city}</TableCell>
-                  <TableCell align="left">{row.urgency_room_msg}</TableCell>
+            <Table
+              stickyHeader
+              aria-label="simple table"
+              sx={{ minWidth: 650, overflow: "hidden" }}
+            >
+              <TableHead>
+                <StyledTableRow>
+                  <StyledTableCell>Image</StyledTableCell>
+                  <StyledTableCell align="left">
+                    Accomadation Type
+                  </StyledTableCell>
+                  <StyledTableCell align="left">city</StyledTableCell>
+                  <StyledTableCell align="left">room message</StyledTableCell>
+                  <StyledTableCell align="left" />
                 </StyledTableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+              </TableHead>
+              <TableBody style={{ color: "black" }}>
+                {DataonTable.map((row) => (
+                  <StyledTableRow
+                    key={row.name}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">
+                      <img src={row.main_photo_url} />
+                    </TableCell>
+                    <TableCell align="left">
+                      {row.accommodation_type_name}
+                    </TableCell>
+                    <TableCell align="left">{row.city}</TableCell>
+                    <TableCell align="left">{row.urgency_room_msg}</TableCell>
+                  </StyledTableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
       </div>
     </Fragment>
   );
