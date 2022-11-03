@@ -1,15 +1,12 @@
 import { Fragment } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Inquiry from "./components/Inquiry";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
+import "./style.css";
 function App() {
   return (
     <Fragment>
       <Inquiry />
-      {/* <BrowserRouter>
-        <Routes> */}
-      {/* <Route exact path="/" element={<Inquiry />} /> */}
-      {/* </Routes>
-      </BrowserRouter> */}
     </Fragment>
   );
 }

@@ -1,0 +1,146 @@
+.query {
+  width: 80%;
+  margin: auto;
+}
+input[type="text"] {
+  width: 45%;
+  padding: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  background: #fff;
+  color: #000;
+}
+input[type="date"] {
+  width: 45%;
+  padding: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  background: #fff;
+  color: #000;
+}
+input:active {
+  border-color: unset !important;
+  outline: unset !important;
+  border: unset;
+}
+input:focus-visible {
+  border-color: unset !important;
+  outline: unset !important;
+  border: unset !important;
+}
+input#country-select-demo {
+  width: 50%;
+  padding: 18px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  background: #fff;
+  color: #000;
+}
+form#form {
+  padding: 60px 120px;
+  background: #efefef5c;
+  border-radius: 40px;
+  margin-top: 80px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.MuiAutocomplete-root.MuiAutocomplete-hasPopupIcon.css-gcwvw8-MuiAutocomplete-root {
+  width: 50%;
+  display: inline-flex;
+  align-items: center;
+  margin-left: -10px;
+}
+.MuiAutocomplete-hasPopupIcon.css-gcwvw8-MuiAutocomplete-root
+  .MuiOutlinedInput-root,
+.MuiAutocomplete-hasClearIcon.css-gcwvw8-MuiAutocomplete-root
+  .MuiOutlinedInput-root {
+  padding-right: 0px !important;
+}
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  border: unset !important;
+}
+svg {
+  margin-right: 60px !important;
+  margin-top: -15px !important;
+  margin: auto;
+  text-align: center;
+}
+label#country-select-demo-label {
+  padding-top: 12px;
+  padding-left: 6px;
+}
+
+.query div button {
+  width: usnet !important;
+  padding: 0 !important;
+  border: unset !important;
+  font-size: 0px !important;
+  background: transparent !important;
+  color: #000;
+  border-radius: 0px;
+  cursor: pointer;
+}
+.query button {
+  width: 97.5%;
+  padding: 20px;
+  border: unset !important;
+  font-size: 16px !important;
+  background: #000;
+  color: #fff;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+.query button:hover {
+  background-color: #1e1eff;
+  transition: all 300ms ease-in-out;
+}
+.Table h3 {
+  text-align: center;
+  padding: 50px 0px;
+}
+.Table button.productListEdit {
+  padding: 5px 30px;
+  border-radius: 50px;
+  background: #000;
+  color: #fff;
+  border: none;
+}
+@media only screen and (max-width: 1540px) {
+  input[type="text"] {
+    width: 42%;
+  }
+  input[type="date"] {
+    width: 42%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .query {
+    width: 95% !important;
+    margin: auto;
+  }
+  form#form {
+    padding: 60px 10px;
+  }
+  input[type="text"] {
+    width: 85%;
+  }
+  input[type="date"] {
+    width: 85%;
+  }
+  .MuiAutocomplete-root.MuiAutocomplete-hasPopupIcon.css-gcwvw8-MuiAutocomplete-root {
+    width: 100% !important;
+  }
+  input#country-select-demo {
+    margin-right: 0 !important;
+  }
+  svg {
+    margin-right: 20px !important;
+  }
+}
