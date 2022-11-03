@@ -1,12 +1,38 @@
 import React, { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
-import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import { currency } from "../utils/Currency";
-import Table from "./Table";
+import { styled } from "@mui/material/styles";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import "./Table.css";
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 11,
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  "&:nth-of-type(odd)": {
+    backgroundColor: theme.palette.action.hover,
+  },
+  // hide last border
+  "&:last-child td, &:last-child th": {
+    border: 0,
+  },
+}));
 export default function Inquiry() {
   const {
     register,
@@ -158,7 +184,48 @@ export default function Inquiry() {
         <button disabled={SubmitDisable}>click</button>
       </form>
 
-      {isShown && <Table data={[DataonTable]} />}
+      <div className="Table">
+        <h3>{DataonTable.length}entry </h3>
+        <TableContainer
+          component={Paper}
+          style={{ boxShadow: "0px 13px 20px 0px blue" }}
+        >
+          <Table
+            stickyHeader
+            aria-label="simple table"
+            sx={{ minWidth: 650, overflow: "hidden" }}
+          >
+            <TableHead>
+              <StyledTableRow>
+                <StyledTableCell>Image</StyledTableCell>
+                <StyledTableCell align="left">
+                  Accomadation Type
+                </StyledTableCell>
+                <StyledTableCell align="left">city</StyledTableCell>
+                <StyledTableCell align="left">room message</StyledTableCell>
+                <StyledTableCell align="left" />
+              </StyledTableRow>
+            </TableHead>
+            <TableBody style={{ color: "black" }}>
+              {DataonTable.map((row) => (
+                <StyledTableRow
+                  key={row.name}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    <img src={row.main_photo_url} />
+                  </TableCell>
+                  <TableCell align="left">
+                    {row.accommodation_type_name}
+                  </TableCell>
+                  <TableCell align="left">{row.city}</TableCell>
+                  <TableCell align="left">{row.urgency_room_msg}</TableCell>
+                </StyledTableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </div>
     </Fragment>
   );
 }
